@@ -110,6 +110,6 @@ def event_button_clear():
 button_clear=ctg.CTkButton(master=frame_center,text="Clear",command=event_button_clear,fg_color="#008170")
 button_clear.grid(row=6,column=1,padx=10,pady=10)
 
-
+sdas=1
 
 app.mainloop()
