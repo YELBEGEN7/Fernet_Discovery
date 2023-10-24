@@ -50,8 +50,8 @@ def event_button_password():
     encrypt_password=fernet.encrypt(msg)
     entry_enpassword.delete(0,'end')
     entry_enpassword.insert(0,encrypt_password)
-    textbox_data.insert("end",f"password={msg.decode('ascii')}\n\n")
-    textbox_data.insert("end",f"encrypt={encrypt_password.decode('ascii')}\n\n")
+    textbox_data.insert("end",f"password={msg.decode('utf-8')}\n\n")
+    textbox_data.insert("end",f"encrypt={encrypt_password.decode('utf-8')}\n\n")
     entry_password.configure(state="normal")
 
 button_password=ctg.CTkButton(master=frame_center,text="Password Encrypt",command=event_button_password)
@@ -67,8 +67,8 @@ def event_button_depassword():
     fernet=Fernet(key)     
     descrypted_password=fernet.decrypt(msg)
     entry_depassword.delete(0,'end')
-    entry_depassword.insert(0,descrypted_password)
-    textbox_data.insert("end",f"decrypt={descrypted_password.decode('ascii')}\n")
+    entry_depassword.insert(0,str(descrypted_password,'utf-8'))
+    textbox_data.insert("end",f"decrypt={descrypted_password.decode()}\n")
 button_depassword=ctg.CTkButton(master=frame_center,text="Password Decrypt",command=event_button_depassword)
 button_depassword.grid(row=5,column=1,padx=10,pady=10)
 
